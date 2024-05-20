@@ -1,25 +1,47 @@
-import logo from './logo.svg';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React, { useState, useEffect } from 'react'; 
 
-export default App;
+  
+
+function RelogioDigital() { 
+
+  const [hora, setHora] = useState(new Date().toLocaleTimeString()); 
+
+  
+
+  useEffect(() => { 
+
+    const interval = setInterval(() => { 
+
+      setHora(new Date().toLocaleTimeString()); 
+
+    }, 1000); 
+
+  
+
+    return () => clearInterval(interval); 
+
+  }, []); 
+
+  
+
+  return ( 
+
+    <div id='Container'> 
+       <div id='content'>
+        <h2>Relógio Digital</h2>
+       <div id='hora'>
+        <p>{hora}</p>
+         </div>
+       </div>
+    </div> 
+
+  ); 
+
+} 
+
+  
+
+export default RelogioDigital; 
